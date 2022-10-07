@@ -1,5 +1,9 @@
 import { defer } from 'react-router-dom';
 
+/**
+ * This would be our skeleton page for synonyms.
+ * It would show both while the dynamic SynonymsLazy component is being loaded AND while the data is being fetched.
+ */
 export function SynonymsSkeleton() {
 	return (
 		<div>
@@ -13,6 +17,11 @@ export function SynonymsSkeleton() {
 	);
 }
 
+/**
+ * This would be the function that loads data for boosts. Think of this as our `useQuery` hook.
+ * We'd be unable to use hooks in this, so we'd likely have to make graphql client calls directly (which we already do in some cases).
+ * I've set an arbitrary timeout of 1 second to represent network latency.
+ */
 export function synonymsLoader() {
 	console.log('Starting to fetch the synonyms data');
 
@@ -29,10 +38,9 @@ export function synonymsLoader() {
 				}),
 			1000
 		);
-	});
-
-	promise.then(() => {
+	}).then((data) => {
 		console.log('Done fetching the synonyms data');
+		return data;
 	});
 
 	return defer({ data: promise });
