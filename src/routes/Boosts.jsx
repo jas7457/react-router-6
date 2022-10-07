@@ -1,4 +1,21 @@
+import React from 'react';
 import { defer } from 'react-router-dom';
+
+/**
+ * A lazyily loaded component for the Boosts page.
+ * Artificially delayed by 3 seconds to simulate network latency.
+ */
+export const Boosts = React.lazy(() => {
+	console.log('Starting to fetch the Boosts component code...');
+	return import('./BoostsLazy').then((def) => {
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				console.log('Finished fetching the Boosts component code.');
+				resolve(def);
+			}, 3000);
+		});
+	});
+});
 
 /**
  * This would be our skeleton page for boosts.

@@ -1,4 +1,21 @@
+import React from 'react';
 import { defer } from 'react-router-dom';
+
+/**
+ * A lazyily loaded component for the Synonyms page.
+ * Artificially delayed by 3 seconds to simulate network latency.
+ */
+export const Synonyms = React.lazy(() => {
+	console.log('Starting to fetch the Synonyms component code...');
+	return import('./SynonymsLazy').then((def) => {
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				console.log('Finished fetching the Synonyms component code.');
+				resolve(def);
+			}, 3000);
+		});
+	});
+});
 
 /**
  * This would be our skeleton page for synonyms.

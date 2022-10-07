@@ -6,32 +6,8 @@ import Root from './routes/Root.jsx';
 import Index from './routes/Index';
 import ErrorPage from './ErrorPage';
 
-import { SynonymsSkeleton, synonymsLoader } from './routes/Synonyms';
-import { BoostsSkeleton, boostsLoader } from './routes/Boosts';
-
-const Synonyms = React.lazy(() => {
-	console.log('Starting to fetch the Synonyms component code...');
-	return import('./routes/SynonymsLazy').then((def) => {
-		return new Promise((resolve) => {
-			setTimeout(() => {
-				console.log('Finished fetching the Synonyms component code.');
-				resolve(def);
-			}, 3000);
-		});
-	});
-});
-
-const Boosts = React.lazy(() => {
-	console.log('Starting to fetch the Boosts component code...');
-	return import('./routes/BoostsLazy').then((def) => {
-		return new Promise((resolve) => {
-			setTimeout(() => {
-				console.log('Finished fetching the Boosts component code.');
-				resolve(def);
-			}, 3000);
-		});
-	});
-});
+import { Synonyms, SynonymsSkeleton, synonymsLoader } from './routes/Synonyms';
+import { Boosts, BoostsSkeleton, boostsLoader } from './routes/Boosts';
 
 import './index.css';
 
@@ -41,7 +17,7 @@ const router = createBrowserRouter(
 			<Route errorElement={<ErrorPage />}>
 				<Route index element={<Index />} />
 				<Route
-					path="synonyms"
+					path="/synonyms"
 					loader={synonymsLoader}
 					element={
 						<Suspense fallback={<SynonymsSkeleton />}>
@@ -50,7 +26,7 @@ const router = createBrowserRouter(
 					}
 				/>
 				<Route
-					path="boosts"
+					path="/boosts"
 					loader={boostsLoader}
 					element={
 						<Suspense fallback={<BoostsSkeleton />}>
