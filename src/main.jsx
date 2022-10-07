@@ -2,12 +2,12 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Route, createRoutesFromElements } from 'react-router-dom';
 
-import Root from './routes/Root.jsx';
-import Index from './routes/Index';
+import Root from './Root.jsx';
+import Index from './Index';
 import ErrorPage from './ErrorPage';
 
-import { Synonyms, SynonymsSkeleton, synonymsLoader } from './routes/Synonyms';
-import { Boosts, BoostsSkeleton, boostsLoader } from './routes/Boosts';
+import { Synonyms, SynonymsSkeleton, synonymsLoader } from './sections/Synonyms/Synonyms';
+import { Boosts, BoostsSkeleton, boostsLoader } from './sections/Boosts';
 
 import './index.css';
 

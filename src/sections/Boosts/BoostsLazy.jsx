@@ -1,5 +1,5 @@
-import { AsyncData } from '../AsyncData';
 import { BoostsSkeleton } from './Boosts';
+import { AsyncData } from '../../AsyncData';
 
 export default function Boosts() {
 	return (

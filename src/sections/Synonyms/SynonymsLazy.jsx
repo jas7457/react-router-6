@@ -1,5 +1,5 @@
-import { AsyncData } from '../AsyncData';
 import { SynonymsSkeleton } from './Synonyms';
+import { AsyncData } from '../../AsyncData';
 
 export default function Synonyms() {
 	return (
