@@ -1,10 +1,9 @@
 import { Outlet, NavLink } from 'react-router-dom';
 
-export default function Root() {
+export function Root() {
 	return (
 		<>
 			<div id="sidebar">
-				<h1>React Router Contacts</h1>
 				<nav>
 					<ul>
 						<li>
@@ -19,6 +18,8 @@ export default function Root() {
 						{[
 							{ to: 'synonyms', title: 'Synonyms' },
 							{ to: 'boosts', title: 'Boosts' },
+							{ to: 'sometimes-errors', title: 'This route sometimes errors' },
+							{ to: 'madeup', title: "This route doesn't exist" },
 						].map(({ to, title }) => (
 							<li key={to}>
 								<NavLink

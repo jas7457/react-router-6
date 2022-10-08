@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function Index() {
+export function Home() {
 	return (
 		<div>
 			<p>This is a demo and suggested solution to a better loading experience in the Shopify Search & Discovery app.</p>
@@ -17,8 +17,8 @@ export default function Index() {
 						the code for `Synonyms` is dynamically imported when the user clicks on that route. While the code is being
 						imported, the `fallback` is shown. For the purposes of this example, I've made the component take 3 seconds
 						to load to more easily demonstrate the loading experience. If you click on{' '}
-						<Link to="synonyms">Synonyms</Link> you will see it make a network request to load the component code and
-						show the fallback for 3 seconds.
+						<Link to="synonyms">Synonyms</Link> you will see it make a network request to load the component code
+						(SynonymsLazy.jsx) and show the fallback for 3 seconds.
 					</p>
 				</li>
 				<li>
@@ -28,9 +28,8 @@ export default function Index() {
 							loader
 						</a>{' '}
 						defines how to fetch data for that specific route. This is where we could make our graphql calls (although
-						we'd have to ditch useQuery) to load our data. I've created an `AsyncData` component to abstract some of
-						this away. The idea is that we'd show the SAME skeleton while fetching data and while fetching the component
-						itself.
+						we'd have to ditch useQuery) to load our data. The idea is that we'd show the SAME skeleton while fetching
+						data and while fetching the component itself.
 					</p>
 
 					<p>
